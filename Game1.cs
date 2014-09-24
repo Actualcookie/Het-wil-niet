@@ -11,7 +11,7 @@ namespace Pong
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D background,life, paddle, ball;
+        Texture2D background,life, paddle, ball,GameOver, player2wins, player1wins;
         Vector2 positionlives, angle;
         Paddles paddle1, paddle2;
         int gamestate, player1lives, player2lives;
@@ -37,8 +37,12 @@ namespace Pong
     protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-      //      life = Content.Load<Texture2D> ("spr_Life");
-      //      background = Content.Load<Texture2D> ("spr_Background");
+            /*      life = Content.Load<Texture2D> ("spr_Life");
+                  background = Content.Load<Texture2D> ("spr_Background");
+                 Gamover = Content.Load<Texture2D>("spr_GameOver");
+             *    player2wins= Content.Load<Texture2D> ("spr_P2wins")
+             *    player1wins= Content.Load<Texture2D> ("spr_P1wins")
+             */
             paddle = Content.Load<Texture2D> ("spr_paddle");
             ball = Content.Load<Texture2D> ("spr_ball");
             paddle1 = new Paddles();
@@ -215,26 +219,21 @@ namespace Pong
 
     public void GameOverScreen()
     {
-<<<<<<< HEAD
-        spriteBatch.Begin;
-        spritebatch.Draw(GameOver, new Vector2((GraphicsDevice.Viewport.Bounds.Width - GameOver.Width), 0), Color.White);
-        if (player1lives = 0)
-        { Graphics.DrawString("P2: Wins", new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Width - 64)); }
-        else if (player2lives = 0)
-        { Graphics.DrawString("P1: Wins", new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Width - 64)); }
-        spriteBatch.End;
-=======
- /*    spriteBatch.Begin();
-        spriteBatch.Draw(GameOver, new Vector2((GraphicsDevice.Viewport.Bounds.Width - GameOver.Width), 0), Color.White);
+
+  spriteBatch.Begin();
+       
         if (player1lives == 0)
         { 
-             graphics.DrawString("P2: Wins", new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Width - 64)); 
+        spritebatch.Draw(GameOver, new Vector2((GraphicsDevice.Viewport.Bounds.Width - GameOver.Width), 0), Color.Aquamarine);
+   spriteBatch.Draw(player2wins, new Vector2(GraphicsDevice.Viewport.Bounds.Width-player2wins.Width, GraphicsDevice.Viewport.Bounds.Height/2), Color.Aquamarine); 
            }
         else if (player2lives == 0)
         { 
-              graphics.DrawString("P1: Wins", new Vector2(GraphicsDevice.Viewport.Bounds.Width / 2, GraphicsDevice.Viewport.Bounds.Width - 64));
-        }
-      spriteBatch.End(); */ 
+       spritebatch.Draw(GameOver, new Vector2((GraphicsDevice.Viewport.Bounds.Width/2 - GameOver.Width), 0), Color.Red);
+              spriteBatch.Draw(player1wins, new Vector2(GraphicsDevice.Viewport.Bounds.Width-player1wins.Width, GraphicsDevice.Viewport.Bounds.Height/2), Color.Red);
+   }
+      spriteBatch.End();
+    }
     }
 
     public void RandomizeDirection()
